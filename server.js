@@ -73,8 +73,6 @@ app.get('/greetings/:user', (req,res) => {
 
 // })
 
-
-
 // console.log(Number("9"))
 // console.log(Number("string"))
 
@@ -101,18 +99,66 @@ app.get('/greetings/:user', (req,res) => {
 // }
 
 
+// app.get('/roll/:int', (req, res) => {
+//     if(Number.isInteger(req.params.int) === false ) {
+//         res.send('<h1>You must specify a number, as per requested by Lord Vader.</h1>')
+//     } else {
+//         numVal = Number(req.params.int)
+//         castDye = Math.floor(Math.random() * numVal + 1)
+//         res.send(`<h1>You rolled a ${castDye}</h1>`)
+//     }  
+// });
+
+// !!  The 'request' remains a string, Number.isInteger cannot distinguish between string and int, even with ===
+// app.get('/roll/:int', (req, res) => {
+//     if(Number.isInteger(req.params.int) === true ) {
+//         numVal = Number(req.params.int)
+//         castDye = Math.floor(Math.random() * numVal + 1)
+//         res.send(`<h1>You rolled a ${castDye}</h1>`)
+//     } else {
+//         res.send('<h1>You must specify a number, as per requested by Lord Vader.</h1>')   
+//     }  
+// });
+
+// time crunch, couldn't find the error here, so decide to re-write it below.
+// app.get('/roll/:int', (req, res) => {
+//     userInput = Number(req.params.int)
+//     if(Number.isInteger(userInput)) {
+//         castDye = Math.floor(Math.random() * userInput + 1)
+//         res.send(`<h1>You rolled a ${castDye}</h1>`)
+//     } else {
+//         res.send('<h1>You must specify a number, as per requested by Lord Vader.</h1>')   
+//     }
+// }
+
+
+// !! utitlized both 'Number' function to first change the string into an int or NaN, then added additonal functionality.
 app.get('/roll/:int', (req, res) => {
-    if(Number.isInteger(req.params.int) === false ) {
-        res.send('<h1>You must specify a number, as per requested by Lord Vader.</h1>')
-    } else {
-        numVal = Number(req.params.int)
-        castDye = Math.floor(Math.random() * numVal + 1)
+    userInput = Number(req.params.int)
+    if(Number.isInteger(userInput)){
+        castDye = Math.floor(Math.random() * userInput +1)
         res.send(`<h1>You rolled a ${castDye}</h1>`)
-    }  
-});
+    } else {
+        res.send('<h1>You must specify a number, as per requested by Lord Vader.</h1>')
+    }
+})
 
 
-// 
+
+
+
+
+
+
+// 3. I want THAT One! 
+
+// const collectibles = [
+//     { name: 'shiny ball', price: 5.95 },
+//     { name: 'autographed picture of a dog', price: 10 },
+//     { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
+//   ];
+
+
 
 
 

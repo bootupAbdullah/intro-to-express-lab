@@ -212,7 +212,6 @@ app.get('/collectibles/:itemIndex', (req, res) => {
     }
 })
 
-
 // !! Using Query Parameters
 
 const shoes = [
@@ -225,7 +224,6 @@ const shoes = [
     { name: "Fifty-Inch Heels", price: 175, type: "heel" }
 ];
 
-
 // !! initially thought 'req.query' was perhaps an object that had a number of pre-existing quert parameters attached to it and tried to figure out what those are.
 // !! later realized that express dynamically captures them and they can then be defined on the backend.
 // resource : https://www.geeksforgeeks.org/express-js-req-query-property/
@@ -235,12 +233,9 @@ const shoes = [
 //     res.send('test');
 // });
 
-
-
 app.get('/hello', (req, res) => {
     res.send(`Hello there, ${req.query.name}! I hear you are ${req.query.age} years old!`);
 });
-
 
 // app.get('/shoes', (req, res) => {
 //     minPrice = req.query.minPrice
@@ -257,16 +252,12 @@ app.get('/hello', (req, res) => {
 //     }
 // });
 
-
-
 // !! startig over the with understanding that url an automtically understand what is being
 //!! set as query parameters
 
 app.get('/shoes', (req, res) => {
   res.send(`I now have your preference: ${req.query.min-price} and your value ${req.query.number}`)
 })
-
-
 
 //port
 app.listen(PORT, () => {
